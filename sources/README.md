@@ -1,0 +1,3 @@
+# PLEASE READ BEFORE USING THIS RESOURCES
+I'm not quite sure before publishing these resources bc it may be unethical. I'm using them because my budget is a bit limited to buy online learning resources such as expensive this much. I think everyone should have access to information but at the same time, the creators put effort into making these books, so If you are eligible to afford them, please buy them.
+> Happy Learning!
