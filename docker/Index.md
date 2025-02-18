@@ -47,7 +47,22 @@
 ### Container Isolation
 **Working Principle**: // TO-DO
 ### Layers
-**What is?**: The docker images based on a docker feature called layers, each layer is a set of immutable filesystems that are stacked on top of each other by priority, enabling container isolation.
+**What is? (and Also Working Principle)**: The docker images based on a docker feature called layers, each layer is a set of immutable filesystems that are stacked on top of each other by priority, enabling container isolation. Layers can be shared across the images thus resource usage can be significantly lowered.
+
+<details>
+  <summary><b>Filesystem Structure of a Layer</b></summary>
+  <ul>
+    <li>Base OS, basic commands and package manager (like apt)</li>
+    <li>Runtime and dependency manager</li>
+    <li>Contains files that have application's dependency instructions such as package.json</li>
+    <li>Application dependencies</li>
+    <li>Application's code files</li>
+  </ul>
+</details>
+
+<i>Notes: 
+- It is good to try to minimize the number of layers because AUFS has a 127 layer limit. Also, each `RUN` instruction generates a new layer, so try to reduce its usage or combine multiple commands in a single `RUN`.
+</i>
 
 ### The Union File System
 > Open your eyes now because this part is critical. It is really has a important role in docker containers.
@@ -55,7 +70,7 @@
 **Working Principle**: UnionFS basically merges multiple files and folders from seperate filesystems (called as branches in this situation) into one filesystem. The base filesystem will be assumed as combination of all branches, starting with the base layer and the other layers will be overlay each other by priority. 
 
 ## Building a Basic Container
-### The “Dockerfile”,
+### The `Dockerfile`,
 **What is?** A file that contains steps to build a container.
 #### **Getting Started**
 Start with creating a folder and a file named "Dockerfile" inside it:
@@ -70,6 +85,42 @@ FROM archlinux
 RUN echo "w"
 ```
 
+## The `Dockerfile` Instructions
+- <details>
+  <summary>The <code>FROM</code> Key</summary>
+  <br/>
+
+  **Description**: // TO-DO
+  **Example**: // TO-DO
+  </details>
+- <details>
+  <summary>The <code>RUN</code> Key</summary>
+  <br/>
+
+  **Description**: // TO-DO
+  **Example**: // TO-DO
+  </details>
+- <details>
+  <summary>The <code>COPY</code> Key</summary>
+  <br/>
+
+  **Description**: // TO-DO
+  **Example**: // TO-DO
+  </details>
+- <details>
+  <summary>The <code>RUN</code> Key</summary>
+  <br/>
+
+  **Description**: // TO-DO
+  **Example**: // TO-DO
+  </details>
+- <details>
+  <summary>The <code>ENTRYPOINT</code> Key</summary>
+  <br/>
+
+  **Description**: // TO-DO
+  **Example**: // TO-DO
+  </details>
 ## The Cheatsheet
 ### CLI Commands
 - <details>
@@ -127,5 +178,10 @@ RUN echo "w"
   <summary><code>docker rm {CONTAINER_NAME}</code><summary>
   </details>
 - <details>
+  <summary><code>docker build ?{OPTIONS} {IMAGE_NAME}</code><summary>
+  </details>
+- <details>
+
+
   <summary><code>docker commit {CONTAINER_NAME} {IMAGE_NAME}</code><summary>
   </details>
